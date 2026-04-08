@@ -1,3 +1,4 @@
+# app.py
 from flask import Flask, request, jsonify
 import joblib
 import os
@@ -17,7 +18,7 @@ except Exception as e:
     raise e
 
 # -------------------------
-# Flask App
+# Initialize Flask App
 # -------------------------
 app = Flask(__name__)
 
@@ -46,7 +47,7 @@ def predict():
         if not isinstance(text, str) or len(text.strip()) == 0:
             return jsonify({"error": "'review' must be a non-empty string"}), 400
 
-        # Transform text
+        # Transform text and predict
         text_vec = vectorizer.transform([text])
         prediction = model.predict(text_vec)[0]
 
@@ -60,4 +61,6 @@ def predict():
 # Run Flask App
 # -------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use Render's PORT or default 5000
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
