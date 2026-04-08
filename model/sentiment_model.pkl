@@ -1,0 +1,11 @@
+Review,Sentiment
+I love this product,Positive
+This is amazing,Positive
+Very bad experience,Negative
+Worst purchase ever,Negative
+Absolutely fantastic,Positive
+Not worth the money,Negative
+Super quality,Positive
+Terrible service,Negative
+Highly recommend this,Positive
+Waste of time,Negative
